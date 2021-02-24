@@ -1,0 +1,27 @@
+<!-- I need to load static in order to use static for my style.css file -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'dessertForm/style.css' %}">
+    <title>Dessert Form Page</title>
+</head>
+
+<body>
+    <h1 id="welcomeMsg">Welcome to Best Dessert Making Store! Enter the Dessert You Want to Make!</h1>
+    <div class="dessertForm">
+        <!-- This is a cool technique, we submit the form to itself which means this will take us back to the home function in the views.py and check for the method status -->
+        <form action="/" method="POST">
+            {% csrf_token %}
+            <!-- we receive the form from views.py -->
+            {{ form }}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>

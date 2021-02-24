@@ -1,0 +1,28 @@
+<!-- I need to load static in order to use static for my style.css file -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'dessertForm/style.css' %}">
+    <title>Display All Desserts</title>
+</head>
+
+<body>
+    <h1 id="welcomeMsg">Here are all the desserts!</h1>
+    <div class="dessertResult">
+        <ul>
+            <!-- this for loop will loop through all the desserts and display them on the screen for users to see -->
+            {% for dessert in all_desserts %}
+            <li>
+                Name: {{dessert.name}}, Description: {{dessert.description}} Price: {{dessert.price}}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>

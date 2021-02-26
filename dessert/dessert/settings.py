@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dessertForm', #add my app here so that Django knows about it
+    'crispy_forms'
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4' # for me to style Django Form
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,3 +1,4 @@
+{%load crispy_forms_tags %} 
 <!-- I need to load static in order to use static for my style.css file -->
 {% load static %}
 <!DOCTYPE html>
@@ -18,7 +19,8 @@
         <form action="/" method="POST">
             {% csrf_token %}
             <!-- we receive the form from views.py -->
-            {{ form }}
+            {{ form|crispy }}
+            <br>
             <input type="submit" value="Submit">
         </form>
     </div>

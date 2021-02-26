@@ -1,22 +1,21 @@
 # Overview
 
-{Important!  Do not say in this section that this is college assignment.  Talk about what you are trying to accomplish as a software engineer to further your learning.}
+This web app allows users to enter the desserts they want to make including the name, description, and price. After the users submit the form, it will take them to the other page and display all the desserts in the database including those ones they just entered.
 
-{Provide a description the web app that you wrote. Describe how to start a test server on your computer and what website to open up to see the first page of the app.}
+The purpose of writing this software is to help myself learn how Django framework works. I now understand how to make different pieces such as urls, views, models, and templates all work together. I also understand how to make my software connect with the SQLite database to read, add, and modify the data.
 
-{Describe your purpose for writing this software.}
+In order to get this web app up and running, you will need to install Django on your machine. I am currently running Django 3.1.5. After installing Django, make sure you are in the right directory that contains "manage.py" file, so you can run the commands you need. Next step is to type "python manage.py runserver" if you are using Windows. If it runs successfully, you should see the localhost: http://127.0.0.1:8000/, and you can click on it to see the dessert form.
 
-{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the software running (starting the server and navigating through the web pages) and a walkthrough of the code.}
 
-[Software Demo Video](http://youtube.link.goes.here)
+
+[Software Demo Video](https://youtu.be/cleF4Nn5YTc)
 
 # Web Pages
 
-{Describe each of the web pages you created and how the web app transitions between each of them.  Also describe what is dynamically created on each page.}
+There are two pages (HTML templates) in this web app. The first one is the main page which contains the dessert form. After the users enter valid input and click submit, the web app will take them to the second page that contains all the desserts details in the database. How the two pages transit between each other is by setting up the urls, views, and form in the HTML templage correctly. All the users' input are connected with the database. The second page will display all the data in the database in a real-time. The web app will also take the users to different pages based on the urls they put in.
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
 * Django Framework
 * Python
 * HTML
@@ -25,9 +24,6 @@
 * Visual Studio Code
 * GitHub
 
-
-{Describe the programming language that you used and any libraries.}
-
 # Useful Websites
 
 * [Django Documentation](https://docs.djangoproject.com/en/3.1/)
@@ -35,7 +31,6 @@
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
-* Item 1
-* Item 2
-* Make it look more professional
+* Allow the users to edit the information they just entered
+* Create user authentication
+* Make the web app look more professional

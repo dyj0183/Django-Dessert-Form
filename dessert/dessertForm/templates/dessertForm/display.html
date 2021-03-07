@@ -13,6 +13,7 @@
 
 <body>
     <h1 id="welcomeMsg">Here are all the desserts!</h1>
+    <button id="createDessertButton"><a href="{% url 'home' %}">Create New Dessert</a></button>
     <div class="dessertResult">
         <ul>
             <!-- this for loop will loop through all the desserts and display them on the screen for users to see -->
@@ -20,6 +21,8 @@
             <li>
                 Name: {{dessert.name}}, Description: {{dessert.description}} Price: {{dessert.price}}
             </li>
+            <button><a href="{% url 'edit' dessert.id %}">Edit</a></button>
+            <button><a href="{% url 'delete' dessert.id %}">Delete</a></button>
             {% endfor %}
         </ul>
     </div>

@@ -13,16 +13,18 @@
 </head>
 
 <body>
-    <h1 id="welcomeMsg">Welcome to Best Dessert Making Store! Enter the Dessert You Want to Make!</h1>
+    <h1 id="welcomeMsg">Update the Dessert</h1>
     <button><a href="{% url 'display' %}">See the Results</a></button>
     <div class="dessertForm">
         <!-- This is a cool technique, we submit the form to itself which means this will take us back to the home function in the views.py and check for the method status -->
-        <form action="/" method="POST">
+        <form action="/update/" method="POST">
             {% csrf_token %}
             <!-- we receive the form from views.py -->
             {{ form|crispy }}
+            <input type="hidden" name="id" value="{{ selectedDessert.id }}">
+            <!-- {{selectedDessert.id}} -->
             <br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Update">
         </form>
     </div>
 </body>

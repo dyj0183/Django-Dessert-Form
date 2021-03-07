@@ -10,6 +10,7 @@ def home(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = dessertForm(request.POST)
+        print(request.POST)
         
         # check whether it's valid:
         if form.is_valid():
@@ -28,4 +29,33 @@ def display(request):
     all_desserts = Dessert.objects.all() # grab all the desserts from the database
     return render(request, 'dessertForm/display.html', {'all_desserts': all_desserts}) # render all the desserts data to the display.html page
 
- 
+def delete(request, id):
+    selectedDessert = Dessert.objects.get(id=id) # get the dessert that the user wants to delete
+    selectedDessert.delete() # delete the selected dessert
+    # all_desserts = Dessert.objects.all() # grab the rest of the desserts from the database
+    # print(selectedDessert)
+    # return render(request, 'dessertForm/display.html', {'all_desserts': all_desserts})
+    return HttpResponseRedirect('/display/')
+
+def edit(request, id):
+    selectedDessert = Dessert.objects.get(id=id)
+
+    # how to prepopulate the form data?
+    data = {'name': selectedDessert.name,
+            'description': selectedDessert.description,
+            'price': selectedDessert.price}
+    form = dessertForm(data)
+    print(form)
+
+    return render(request, 'dessertForm/editForm.html', {'selectedDessert': selectedDessert, 'form': form})
+
+def update(request):
+    if request.method == 'POST':
+        # print(request.POST) 
+        print(request.POST.get('name')) # request.POST is a "QueryDict", so we must use "get" with the "key" to retrieve the "data"
+       
+        selectedDessert = Dessert.objects.filter(id = request.POST.get('id')) # 
+        selectedDessert.update(name = request.POST.get('name'), description = request.POST.get('description'), price = request.POST.get('price'))
+
+    return HttpResponseRedirect('/display/')
+    
